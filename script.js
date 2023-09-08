@@ -12,7 +12,7 @@ let AIBrainFunction
 let xImageUrl
 let oImageUrl
 
-let fieldArray = [[],[],[],[],[],[],[],[],[]]
+let fieldArray = [[], [], [], [], [], [], [], [], []]
 let mainFieldArray = []
 
 //======================================
@@ -89,52 +89,69 @@ function loginClicked() {
 //=========================================
 // Часть, непосредственно связанная с игрой
 //=========================================
+// Для сложного режима
 function putCharacter(clickedField) {
-    if(isPlayerTurn) {
-        if(isPlayerFirst) {
-            clickedField.style.backgroundImage = xImageUrl
-            fieldArray[clickedField.id[0]][clickedField.id[1]] = 1
-        } else {
-            clickedField.style.backgroundImage = oImageUrl
-            fieldArray[clickedField.id[0]][clickedField.id[1]] = 2
+    if (isPlayerTurn) {
+        if (mainFieldArray[clickedField.id[0]] == undefined) {
+            if (fieldArray[clickedField.id[0]][clickedField.id[1]] == undefined) {
+                // Заменить if на хранение параметров игрока
+                if (isPlayerFirst) {
+                    clickedField.style.backgroundImage = xImageUrl
+                    fieldArray[clickedField.id[0]][clickedField.id[1]] = 1
+                } else {
+                    clickedField.style.backgroundImage = oImageUrl
+                    fieldArray[clickedField.id[0]][clickedField.id[1]] = 2
+                }
+                // В случае игры с ботом менять ещё и isPlayerTurn
+                isPlayerFirst = !isPlayerFirst
+            }
         }
-        isPlayerFirst = !isPlayerFirst
     }
-    
-    for(let i = 0; i < 9; i++) {
-        checkFieldState(fieldArray[i])
-    }
+
+    // Проверка состояния поля
+    // Пока здесь код для сложного режима
+    checkMainFieldState()
 }
+function checkMainFieldState() {
+    for (let i = 0; i < 9; i++) {
+        if (mainFieldArray[i] == undefined) {
+            let state = checkFieldState(fieldArray[i])
+            mainFieldArray[i] = state
+            // Здесь можно будет рисовать большие кресты и ноли
+            if (state == 1) {
+                alert("В поле " + i + " победили крестики.")
+            }
+            if (state == 2) {
+                alert("В поле " + i + " победили нолики.")
+            }
+        }
+    }
+
+    // А сюда вписать проверку главного 3x3 поля
+}
+// Проверка поля 3x3
 function checkFieldState(smallFieldArray) {
     // Ахтунг! Некрасивый код
     let winner
     // Проверяем горизонтальные линии
     for (let i = 0; i < 9; i += 3) {
-        if(smallFieldArray[i] == smallFieldArray[i+1] && smallFieldArray[i] == smallFieldArray[i+2]) {
+        if (smallFieldArray[i] == smallFieldArray[i + 1] && smallFieldArray[i] == smallFieldArray[i + 2]) {
             winner = smallFieldArray[i]
         }
     }
     // Проверяем вертикальные линии
     for (let x = 0; x < 3; x++) {
-        if(smallFieldArray[x] == smallFieldArray[x+3] && smallFieldArray[x] == smallFieldArray[x+6]) {
+        if (smallFieldArray[x] == smallFieldArray[x + 3] && smallFieldArray[x] == smallFieldArray[x + 6]) {
             winner = smallFieldArray[x]
         }
     }
     // Проверяем диагонали
-    if((smallFieldArray[0] == smallFieldArray[4] && smallFieldArray[0] == smallFieldArray[8]) ||
+    if ((smallFieldArray[0] == smallFieldArray[4] && smallFieldArray[0] == smallFieldArray[8]) ||
         (smallFieldArray[2] == smallFieldArray[4] && smallFieldArray[2] == smallFieldArray[6])) {
         winner = smallFieldArray[4]
     }
 
-    // Выводим победителя
-    switch(winner) {
-        case 1:
-            console.log("Крестики.")
-            break
-        case 2:
-            console.log("Нолики.")
-            break
-    }
+    return winner
 }
 function easyAIBrain() {
 
