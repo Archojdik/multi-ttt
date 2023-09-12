@@ -94,26 +94,23 @@ function putCharacter_easy() {
 function checkFieldState_easy(smallFieldArray) {
     // Ахтунг! Некрасивый код
     // Здесь баг
-    let winner
     // Проверяем горизонтальные линии
     for (let i = 0; i < 9; i += 3) {
         if (smallFieldArray[i] == smallFieldArray[i + 1] && smallFieldArray[i] == smallFieldArray[i + 2]) {
-            winner = smallFieldArray[i]
+            return smallFieldArray[i]
         }
     }
     // Проверяем вертикальные линии
     for (let x = 0; x < 3; x++) {
         if (smallFieldArray[x] == smallFieldArray[x + 3] && smallFieldArray[x] == smallFieldArray[x + 6]) {
-            winner = smallFieldArray[x]
+            return smallFieldArray[x]
         }
     }
     // Проверяем диагонали
     if ((smallFieldArray[0] == smallFieldArray[4] && smallFieldArray[0] == smallFieldArray[8]) ||
         (smallFieldArray[2] == smallFieldArray[4] && smallFieldArray[2] == smallFieldArray[6])) {
-        winner = smallFieldArray[4]
+        return smallFieldArray[4]
     }
-
-    return winner
 }
 //-------------------
 
@@ -152,7 +149,7 @@ function loadGameField_hard() {
             clickField.id = i.toString() + j.toString() // Для позиционирования
             clickField.className = "clickField"
             clickField.onclick = function () {
-                putCharacter(this)
+                putCharacterFun(this)
             }
 
             additionalField.appendChild(clickField)
@@ -190,9 +187,11 @@ function checkFieldState_hard() {
             mainFieldArray[i] = state
             // Здесь можно будет рисовать большие кресты и ноли
             if (state == 1) {
+                gameField.children[i].style.backgroundImage = xImageUrl
                 alert("В поле " + i + " победили крестики.")
             }
             if (state == 2) {
+                gameField.children[i].style.backgroundImage = oImageUrl
                 alert("В поле " + i + " победили нолики.")
             }
         }
