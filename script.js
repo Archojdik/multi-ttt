@@ -69,6 +69,7 @@ function setHardMode() {
     checkStateFun = checkFieldState_hard
     loadFieldFun()
 
+    fieldArray = [[], [], [], [], [], [], [], [], []]
     mainFieldArray = []
 }
 function registerClicked() {
