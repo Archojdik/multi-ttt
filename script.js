@@ -12,6 +12,7 @@ let xImageUrl
 let oImageUrl
 
 let fieldArray = [[], [], [], [], [], [], [], [], []]
+// Используй этот массив для хранения полей любого режима
 let mainFieldArray = []
 
 let loadFieldFun
@@ -27,7 +28,6 @@ window.onload = function () {
     hardBtn = document.getElementById("hardBtn")
 
     loadImages()
-    //loadGameField() // Перенести в выбор режима
 }
 
 function loadImages() {
@@ -40,23 +40,36 @@ function setEasyMode() {
     normalBtn.classList.add("difficultyHidden")
     hardBtn.classList.add("difficultyHidden")
 
+    loadFieldFun = loadGameField_easy
+    putCharacterFun = putCharacter_easy
+    checkStateFun = checkFieldState_easy
+    loadFieldFun()
 
+    mainFieldArray = []
 }
 function setNormalMode() {
-    alert("Обычный режим будет доступен на релизе.")
-    return
-
     easyBtn.classList.add("difficultyHidden")
     normalBtn.classList.remove("difficultyHidden")
     hardBtn.classList.add("difficultyHidden")
+
+    loadFieldFun = loadGameField_normal
+    putCharacterFun = putCharacter_normal
+    checkStateFun = checkFieldState_normal
+    loadFieldFun()
+
+    mainFieldArray = []
 }
 function setHardMode() {
-    alert("Сложный режим будет доступен на релизе.")
-    return
-
     easyBtn.classList.add("difficultyHidden")
     normalBtn.classList.add("difficultyHidden")
     hardBtn.classList.remove("difficultyHidden")
+
+    loadFieldFun = loadGameField_hard
+    putCharacterFun = putCharacter_hard
+    checkStateFun = checkFieldState_hard
+    loadFieldFun()
+
+    mainFieldArray = []
 }
 function registerClicked() {
     alert("Регистрация аккаунта и мультиплеер будут доступны на релизе.")
@@ -69,7 +82,7 @@ function loginClicked() {
 // Лёгкий режим (3x3)
 //===================
 function loadGameField_easy() {
-
+    alert("Загрузка лёгкого поля.")
 }
 function putCharacter_easy() {
 
@@ -80,6 +93,7 @@ function putCharacter_easy() {
 // 2 - нолики
 function checkFieldState_easy(smallFieldArray) {
     // Ахтунг! Некрасивый код
+    // Здесь баг
     let winner
     // Проверяем горизонтальные линии
     for (let i = 0; i < 9; i += 3) {
@@ -107,7 +121,7 @@ function checkFieldState_easy(smallFieldArray) {
 // Нормальный режим (4x4)
 //=======================
 function loadGameField_normal() {
-
+    alert("Загрузка нормального поля.")
 }
 function putCharacter_normal() {
 
