@@ -1,92 +1,8 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
 <head>
-    <style>
-    body {
-        background: url("background.jpg"), white;
-        background-size: cover;
-    }
-    h1 {
-        text-align: center;
-    }
-    #difficultyGrid {
-        display: grid;
-        height: 50px;
-        place-items: center;
-        grid-template-columns: 1fr 1fr 1fr;
-        margin-bottom: 20px;
-    }
-    .difficultyBtn {
-        border: 40px, black;
-        font-size: large;
-        font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-        width: 200px;
-        height: 100%;
-    
-        transition: all;
-        transition-duration: 300ms;
-    }
-    .difficultyHidden {
-        filter: brightness(0.4);
-    }
-    .gameScreen {
-        position: relative;
-        width: 100%;
-        padding-bottom: 100%;
-
-        background-size: cover;
-        background-repeat: no-repeat;
-    }
-    .gameField {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-    
-        display: grid;
-        place-items: center;
-        grid-template-columns: 1fr 1fr 1fr;
-        grid-template-rows: 1fr 1fr 1fr;
-    }
-    .clickField {
-        position: relative;
-        width: 100%;
-        padding: 0;
-        padding-bottom: 100%;
-        border-width: 0px;
-        border-radius: 20%;
-    
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-color: rgba(127, 127, 64, 0.4);
-    }
-    .centring {
-        display: flex;
-        justify-content: center;
-    }
-    #mainGameScreen {
-        position: relative;
-        width: 80vmin;
-        padding-bottom: 80vmin;
-    }
-    #easyBtn {
-        background-color: green;
-        /*box-shadow: inset 200px 0px rgba(0, 0, 0, 0.6);*/
-    }
-    #normalBtn {
-        background-color: orange;
-    }
-    #hardBtn {
-        background-color: red;
-    }
-    #register {
-        text-align: center;
-        color: blue;
-    }
-    #login {
-        text-align: center;
-        color: blue;
-    }
-    </style>
+    <title>Мессия</title>
+    <link href="style.css" rel="stylesheet"/>
     <script src="script.js"></script>
 </head>
 <body>
@@ -108,9 +24,3 @@
     <p id="register" onclick="registerClicked()"><u>Зарегистрироваться</u></p>
     <p id="login" onclick="loginClicked()"><u>Войти в аккаунт</u></p>
 </body>
-<footer>
-    <p>Сделано командой "ПРИМЕР ТЕКСТА"</p>
-    <p>Белов Илья</p>
-    <p>Мутин Степан</p>
-    <p>Колечкина Анна</p>
-</footer>
