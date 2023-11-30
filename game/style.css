@@ -1,0 +1,112 @@
+body {
+    background: url("../assets/background1.jpg"), white;
+    background-size: cover;
+}
+h1 {
+    text-align: center;
+}
+.indicator {
+    text-align: center;
+    font-size: large;
+}
+#difficultyGrid {
+    display: grid;
+    height: 100px;
+    place-items: center;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-bottom: 20px;
+}
+.difficultyBtn {
+    border: 0;
+    background-color: transparent;
+    /*border: 40px, black;*/
+    /*font-size: large;*/
+    /*font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;*/
+    width: 200px;
+    height: 100%;
+
+    transition: all;
+    transition-duration: 300ms;
+}
+.difficultyHidden {
+    filter: brightness(0.4);
+}
+.field_3x3 {
+    background-image: url("../assets/f_3x3.png");
+    background-size: contain;
+}
+.field_4x4 {
+    background-image: url("../assets/f_4x4.png");
+    background-size: contain;
+}
+.gameScreen {
+    position: relative;
+    width: 100%;
+    padding-bottom: 100%;
+
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.gameField {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    display: grid;
+    place-items: center;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+}
+.clickField {
+    position: relative;
+    width: 100%;
+    padding: 0;
+    padding-bottom: 100%;
+    border-width: 0px;
+    border-radius: 20%;
+
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: transparent;
+}
+.centring {
+    display: flex;
+    justify-content: center;
+}
+.winLinesCanvas {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+
+    pointer-events: none;
+    z-index: 1;
+}
+#mainGameScreen {
+    position: relative;
+    width: 80vmin;
+    padding-bottom: 80vmin;
+}
+#easyBtn {
+    background-image: url("../assets/eazy.png");
+    background-size: cover;
+    /*background-color: green;*/
+}
+#normalBtn {
+    background-image: url("../assets/normal.png");
+    background-size: cover;
+    /*background-color: orange;*/
+}
+#hardBtn {
+    background-image: url("../assets/hard.png");
+    background-size: cover;
+    /*background-color: red;*/
+}
+#register {
+    text-align: center;
+    color: blue;
+}
+#login {
+    text-align: center;
+    color: blue;
+}

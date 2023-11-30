@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf8"/>
+    <title>Комнаты</title>
+    <!--Скрипт только высвечивает имя и рейтинг юзера-->
+    <script>
+        window.onload = async () => {
+            let response = await fetch("/GetMe");
+            if (response.ok) {
+                let text = await response.text();
+                let score = text.split(" ")[0];
+                let name = text.slice(text.indexOf(" ") + 1);
+
+                document.getElementById("userName").innerText = name;
+                document.getElementById("userScore").innerText = "Социальный кредит: " + score;
+            }
+        };
+    </script>
+</head>
+<body>
+    <p id="userName">Имя пользователя</p>
+    <p id="userScore">Социальный кредит:</p>
+    <br/>
+    <h1>Игровые комнаты</h1>
+
+    <!--Управлять комнатами только через запросы к этой же страничке-->
+    <div>
+        <h2>Создать комнату</h2>
+        <form action="/game/index.html" method="get">
+            <input type="text" name="mode" readonly hidden value="online"/>
+            <input type="text" name="room" readonly hidden value="create"/>
+            <div>
+                <label for="is_private">Закрытая</label>
+                <input type="checkbox" name="is_private"/>
+            </div>
+            <input type="submit" value="Создать комнату"/>
+        </form>
+    </div>
+    <div>
+        <h2>Присоединиться к комнате</h2>
+        <form action="/game/index.html" method="get">
+            <input type="text" name="mode" readonly hidden value="online"/>
+            <input type="text" name="room" readonly hidden value="public"/>
+            <input type="submit" name="enter_public" value="Войти в случайную"/> <!--Вместо value вывести текст по-другому-->
+        </form>
+        <form action="/game/index.html" method="get">
+            <input type="text" name="mode" readonly hidden value="online"/>
+            <input type="text" name="room" readonly hidden value="invited"/>
+            <div>
+                <input type="submit" value="Войти по приглашению"/>
+                <input type="text" name="invite_code" placeholder="Код приглашения"/>
+            </div>
+        </form>
+    </div>
+</body>

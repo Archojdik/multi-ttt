@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<meta charset="utf-8">
+
+<head>
+    <title>Мессия</title>
+    <link href="/menu/style.css" rel="stylesheet"/>
+</head>
+<body>
+    <div id="header">
+        <h1>МЕССИЯ 5100 (название временное)</h1>
+    </div>
+    <div id="gamemodeGrid">
+        <form action="/game/index.html" method="get">
+            <input type="text" name="mode" value="bot" hidden/>
+            <input id="botButton" class="gamemodeBtn" type="submit" value=""/>
+        </form>
+        <form action="/game/index.html" method="get">
+            <input type="text" name="mode" value="onscreen" hidden/>
+            <input id="pairButton" class="gamemodeBtn" type="submit" value=""/>
+        </form>
+        <form action="/auth/index.html" method="get">
+            <input id="onlineButton" class="gamemodeBtn" type="submit" value=""/>
+        </form>
+    </div>
+</body>

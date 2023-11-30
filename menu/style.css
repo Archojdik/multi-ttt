@@ -1,0 +1,33 @@
+body {
+    background: url("/assets/background1.jpg"), white;
+    background-size: cover;
+}
+h1 {
+    text-align: center;
+}
+#gamemodeGrid {
+    display: flex;
+    justify-content: space-evenly;
+}
+#botButton {
+    background-color: transparent;
+    background-image: url("/assets/bot.png");
+    background-size: cover;
+}
+#pairButton {
+    background-color: transparent;
+    background-image: url("/assets/pair.png");
+    background-size: cover;
+}
+#onlineButton {
+    background-color: transparent;
+    background-image: url("/assets/online.png");
+    background-size: cover;
+}
+.gamemodeBtn {
+    border: 0;
+    outline: none;
+    display: block;
+    width: 150px;
+    height: 150px;
+}

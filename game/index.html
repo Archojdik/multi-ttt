@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<head>
+    <title>Мессия</title>
+    <link href="style.css" rel="stylesheet"/>
+    <script src="script.js"></script>
+</head>
+<body>
+    <div id="header">
+        <h1>МЕССИЯ 5100 (название временное)</h1>
+        <p id="modeIndicator" class="indicator"></p>
+        <p id="invitationCode" class="indicator" hidden></p>
+    </div>
+    <div id="difficultyGrid">
+        <button id="easyBtn" class="difficultyBtn" onclick="onSetEasyModePressed()"></button>
+        <button id="normalBtn" class="difficultyBtn" onclick="onSetNormalModePressed()"></button>
+        <button id="hardBtn" class="difficultyBtn" onclick="onSetHardModePressed()"></button>
+    </div>
+    <div class="centring">
+        <div id="mainGameScreen">
+            <canvas class="winLinesCanvas">
+                <div class="gameField">
+                    <!-- Сюда ещё дюжину gameScreen с gameField, а в них - clickField -->
+                </div>
+            </canvas>
+        </div>
+    </div>
+    <!-- <p id="register" onclick="registerClicked()"><u>Зарегистрироваться</u></p>
+    <p id="login" onclick="loginClicked()"><u>Войти в аккаунт</u></p> -->
+</body>
